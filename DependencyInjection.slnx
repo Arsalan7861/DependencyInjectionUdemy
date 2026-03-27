@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="D:/Dev/DependencyInjection/DependencyInjection.ConsoleApp/DependencyInjection.ConsoleApp.csproj" />
+  <Project Path="D:/Dev/DependencyInjection/DependencyInjection.Infrastructure/DependencyInjection.Infrastructure.csproj" Id="34e7d607-072c-43e7-9495-387d79a91c6c" />
+  <Project Path="D:/Dev/DependencyInjection/DependencyInjection.WebApplication/DependencyInjection.WebApplication.csproj" />
+  <Project Path="DependencyInjection.Application/DependencyInjection.Application.csproj" Id="c60c7aee-738d-4f5a-8d8e-34b437b5617f" />
+  <Project Path="DependencyInjection.Domain/DependencyInjection.Domain.csproj" Id="b77b61c0-c4a3-46a3-a874-e13883f7f799" />
+</Solution>
