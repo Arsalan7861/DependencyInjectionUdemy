@@ -15,6 +15,7 @@
     <ProjectReference Include="..\DependencyInjection.Application\DependencyInjection.Application.csproj" />
     <ProjectReference Include="..\DependencyInjection.Domain\DependencyInjection.Domain.csproj" />
     <ProjectReference Include="..\DependencyInjection.Infrastructure\DependencyInjection.Infrastructure.csproj" />
+    <ProjectReference Include="..\DependencyInjection.MyEndpoints\DependencyInjection.MyEndpoints.csproj" />
   </ItemGroup>
 
 </Project>

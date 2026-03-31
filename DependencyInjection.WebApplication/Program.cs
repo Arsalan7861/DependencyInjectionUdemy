@@ -2,6 +2,7 @@ using System.Threading.RateLimiting;
 using DependencyInjection.Domain;
 using DependencyInjection.Infrastructure;
 using DependencyInjection.Infrastructure.Context;
+using DependencyInjection.MyEndpoints;
 using DependencyInjection.WebApplication;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -45,6 +46,9 @@ builder.Services.AddRateLimiter(conf =>
 
 builder.Services.AddTransient<ExampleMiddleware>();
 builder.Services.AddExceptionHandler<ExceptionHandler>().AddProblemDetails(); // ExceptionHandler'ı uygulamaya ekler, böylece uygulama genelinde oluşan istisnaları yakalayarak işleyebilir ve ProblemDetails formatında yanıt dönebilir
+
+builder.Services.AddMyEndpoints(); // MyEndpoints katmanındaki IEndpoint interface'ini implement eden class'ları uygulamaya ekler, böylece bu class'ların MapEndpoints methodları çağrılarak endpoint'ler uygulamaya eklenir
+
 var app = builder.Build();
 
 // Service Provider:
@@ -61,7 +65,12 @@ app.UseRateLimiter(); // Rate Limiting işlemlerini gerçekleştirir, böylece b
 app.UseAuthentication(); // Kimlik doğrulama işlemlerini gerçekleştirir, böylece kullanıcıların kimliklerini doğrulamalarını sağlar
 app.UseAuthorization(); // Yetki kontrolu
 
+AssemblyTest test = new();
+test.Method();
 
+//app.MapProducts(); // ProductModule'deki MapProducts extension methodunu çağırarak ürünlerle ilgili endpoint'leri uygulamaya ekler
+//app.MapCategories();
+app.MapMyEndpoints(); // MyEndpoints katmanındaki IEndpoint interface'ini implement eden class'ların MapEndpoints methodlarını çağırarak endpoint'leri uygulamaya ekler
 app.MapGet("/test", () =>
 {
     var cekic = app.Services.GetRequiredService<Cekic>();
